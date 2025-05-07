@@ -1,0 +1,25 @@
+GET http://localhost:8080/
+
+###
+GET http://localhost:8080/api/v1/todos
+
+###
+GET http://localhost:8080/api/v1/todos/1
+
+###
+DELETE http://localhost:8080/api/v1/todos/2
+
+###
+GET http://localhost:8080/api/v1/persons
+
+###
+GET http://localhost:8080/api/v1/persons/1
+
+###
+POST http://localhost:8080/api/v1/persons
+
+###
+DELETE http://localhost:8080/api/v1/persons/2
+
+###
+PUT http://localhost:8080/api/v1/persons/1
