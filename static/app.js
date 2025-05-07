@@ -80,7 +80,7 @@ newTodoForm.onsubmit = async (e) => {
 
   const formData = new FormData(newTodoForm);
   const todo = Object.fromEntries(formData);
-  createTodo(todo);
+  await createTodo(todo);
 
   updateTodos();
 };

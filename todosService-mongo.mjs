@@ -33,9 +33,10 @@ export const todosService = {
   update: async (todo, id) => {
     const filter = { _id: ObjectId.createFromHexString(id) }; //validating id to a correct ObjectId()
     const updateDoc = { $set: { ...todo } };
+    delete updateDoc.$set.id; // delete client-based id
     const option = { returnDocument: 'after' }; //after = updated Todo, 'before' = original Todo
     const updatedTodo = await todos.findOneAndUpdate(filter, updateDoc, option);
-    return { ...updatedTodo } ?? undefined;
+    return updatedTodo.value ?? undefined;
   },
   remove: async (id) => {
     const filter = { _id: ObjectId.createFromHexString(id) };

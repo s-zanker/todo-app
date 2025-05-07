@@ -38,7 +38,7 @@ todosRouter.delete('/:id', async (req, res) => {
   const { id } = req.params;
   const deletedTodo = await todosService.remove(id);
   if (deletedTodo === undefined) {
-    res.status(404);
+    res.status(404).send({ error: 'Todo not found' });
   }
-  res.status(200);
+  res.status(200).send();
 });
