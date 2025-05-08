@@ -27,7 +27,7 @@ function TodoItem(todo) {
   };
 
   deleteButtonElement.onclick = async (e) => {
-    await deleteTodo(todo.id);
+    await deleteTodo(todo._id);
     updateTodos();
   };
 
@@ -52,7 +52,7 @@ function createTodo(todo) {
 }
 
 function updateTodo(todo) {
-  return fetch(`/api/v1/todos/${todo.id}`, {
+  return fetch(`/api/v1/todos/${todo._id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
