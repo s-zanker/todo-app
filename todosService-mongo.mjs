@@ -17,7 +17,6 @@ export const todosService = {
   findAll: async () => {
     const cursor = todos.find({}); //returns Cursor Object that points to the result
     const allTodos = await cursor.toArray(); //makes an array out of the cursor object
-    console.log(allTodos);
     return allTodos;
   },
   findById: async (id) => {
@@ -27,16 +26,15 @@ export const todosService = {
   },
   create: async (todo) => {
     const id = await todos.insertOne(todo); //returns the new id as an object of ObjectId()
-    console.log(id);
     return id.insertedId.toHexString(); //converting the ObjectId() in an Hex String of numbers
   },
   update: async (todo, id) => {
     const filter = { _id: ObjectId.createFromHexString(id) }; //validating id to a correct ObjectId()
     const updateDoc = { $set: { ...todo } };
-    delete updateDoc.$set.id; // delete client-based id
+    delete updateDoc.$set._id; // delete client-based id
     const option = { returnDocument: 'after' }; //after = updated Todo, 'before' = original Todo
     const updatedTodo = await todos.findOneAndUpdate(filter, updateDoc, option);
-    return updatedTodo.value ?? undefined;
+    return updatedTodo ?? undefined;
   },
   remove: async (id) => {
     const filter = { _id: ObjectId.createFromHexString(id) };

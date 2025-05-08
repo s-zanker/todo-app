@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <head>
-  <title>Todo List</title>
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,400&display=swap"
+      rel="stylesheet"
+    />
   <link rel="stylesheet" href="./app.css" />
   <script type="module" defer src="./app.js"></script>
+  <title>Todo List</title>
 </head>
 <body>
   <h1>Todo List</h1>
+  <div class="todoWrapper">
   <form id="newTodoForm">
-    <input type="text" name="label" placeholder="Be awesome!" />
+    <input type="text"  id="label" name="label" placeholder="Be awesome!" />
   </form>
   <ul id="todoList">
   </ul>
+</div>
 </body>
 </html>
